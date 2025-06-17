@@ -34,7 +34,6 @@ def score_task1(gt_file: str, pred_file: str) -> dict[str, int | float]:
 
     Metrics returned:
         - AUC-ROC
-        - AUCPR
 
     !!! Note: any updates to this function must maintain the return type
     of a dictionary, where keys are the metric names and values are the
@@ -56,10 +55,10 @@ def score_task1(gt_file: str, pred_file: str) -> dict[str, int | float]:
     # between groundtruth and prediction before scoring.
     merged = truth.merge(pred, how="left", on="id")
     roc = roc_auc_score(merged["disease"], merged["probability"])
-    precision, recall, _ = precision_recall_curve(
-        merged["disease"], merged["probability"]
-    )
-    return {"auc_roc": roc, "auprc": auc(recall, precision)}
+    # precision, recall, _ = precision_recall_curve(
+    #     merged["disease"], merged["probability"]
+    # )
+    return {"auc_roc": roc}  # , "auprc": auc(recall, precision)}
 
 
 # --- Add more scoring functions for different tasks as needed ---
