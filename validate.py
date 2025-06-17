@@ -1,19 +1,11 @@
 #!/usr/bin/env python3
-"""Template validation script.
+"""Validation script for the EndALS Challenge.
 
-Script is currently designed for validating submission for a single-
-task challenge.
-
-At a minimum, you will need to:
-    1. Define the expected data structures (see GROUNDTRUTH_COLS and
-       PREDICTION_COLS)
-    2. Customize validate_task1() to fit your specific validation needs
-    3. Add helper functions and manage dependencies as needed for your
-       validation process
-
-For challenges with multiple tasks, create additional `validate_task*()`
-functions and update the `validate()` function to route validation to
-the appropriate task.
+Validation checks are:
+* two column headers: `id`, `probability`
+* no duplicate `id`
+* no missing `id` from groundtruth file
+* `probability` values are [0, 1]
 """
 import json
 
