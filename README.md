@@ -1,45 +1,19 @@
-# EndALS 2025 Evaluation
-Validation and scoring scripts for the [EndALS 2025 Challenge](https://www.synapse.org/EndALS_2025).
+# EndALS 2025 Writeup Validation Workflow
 
-Metrics returned and used for ranking are:
+The repository contains the validation workflow for the
+[EndALS 2025 Challenge].
 
-* ROC‑AUC
-* secondary metric TBD
+## Challenge Overview
 
-## Usage - Python
+The challenge is split into three tasks:
 
-### Validate
+1. ...
+2. ...
+3. ...
 
-```text
-python validate.py \
-  -p PATH/TO/PREDICTIONS_FILE.CSV \
-  -g PATH/TO/GOLDSTANDARD_FILE.CSV [-o RESULTS_FILE]
-```
-If `-o/--output` is not provided, then results will print
-to STDOUT, e.g.
+Rubric criteria are:
 
-```json
-{"submission_status": "VALIDATED", "submission_errors": ""}
-```
+_TBD_
 
-What it will check for:
 
-- Two columns named `id`, `probability` (extraneous columns 
-  will be ignored)
-- `id` values are strings
-- `probability` values are floats between 0.0 
-  and 1.0, and cannot be null/None
-- There is exactly one prediction per ID (so: no missing
-  or duplicated `id`s)
-- There are no extra predictions (so: no unknown `id`s)
-
-### Score
-
-```text
-python score.py \
-  -p PATH/TO/PREDICTIONS_FILE.CSV \
-  -g PATH/TO/GOLDSTANDARD_FILE.CSV [-o RESULTS_FILE]
-```
-
-If `-o/--output` is not provided, then results will output
-to `results.json`.
+[EndALS 2025 Challenge]: https://www.synapse.org/Synapse:syn66498751
