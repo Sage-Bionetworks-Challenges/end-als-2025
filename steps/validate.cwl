@@ -28,14 +28,14 @@ requirements:
         prediction_file_status = "INVALID"
         invalid_reasons.append(f"Expected FileEntity type but found {args.entity_type}")
     else:
-        acceptable_file_exts = {".doc", ".pdf", ".txt"}
+        acceptable_file_exts = {".doc", ".docx", ".pdf", ".rtf", ".txt"}
         extension = Path(args.submission_file).suffix.lower()
         
         if extension in acceptable_file_exts:
             submission_status = "VALID"
         else:
             invalid_reasons.append(
-                f"Invalid file extension: {extension}. "
+                f"Invalid file extension: {extension}"
                 f"Accepted extensions are {', '.join(sorted(list(acceptable_file_exts)))}."
             )
         
